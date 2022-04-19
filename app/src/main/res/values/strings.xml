@@ -5,4 +5,9 @@
     <string name="get">Get</string>
     <string name="_off">30%</string>
     <string name="off">OFF</string>
+    <string name="app_name_home_fragment">Discover</string>
+    <string name="sort_by">Sort by</string>
+    <string name="description">Explore the new Shirts</string>
+    <string name="shirt_name">PHILLIP SHIRT</string>
+    <string name="_89_99">$89.99</string>
 </resources>

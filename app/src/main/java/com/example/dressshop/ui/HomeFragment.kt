@@ -11,6 +11,9 @@ import com.example.dressshop.databinding.FragmentHomeBinding
 import com.example.dressshop.viewmodel.DressViewModel
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.dressshop.adapter.ShirtListAdapter
 
 
 class HomeFragment : Fragment() {
@@ -22,6 +25,9 @@ class HomeFragment : Fragment() {
     private lateinit var viewPager2: ViewPager2
     private lateinit var viewPagerAdapter: MyViewPagerAdapter
     private lateinit var dotsIndicator: DotsIndicator
+
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var shirtListAdapter: ShirtListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,6 +55,12 @@ class HomeFragment : Fragment() {
             page.scaleY = viewModel.calculateScaleXAndY(position)
             page.scaleX = viewModel.calculateScaleXAndY(position)
         }
+
+        recyclerView = binding.recyclerViewShirt
+        shirtListAdapter = ShirtListAdapter(viewModel.shirtData)
+        recyclerView.adapter = shirtListAdapter
+        recyclerView.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+
     }
 
     override fun onDestroyView() {
